@@ -121,7 +121,7 @@ class Mattermost(notify.NotificationPlugin):
     def is_configured(self, project):
         return all((self.get_option(k, project) for k in ('webhook',)))
 
-    def notify(self, notification):
+    def notify(self, notification, raise_exception=True):
         project = notification.event.group.project
         if not self.is_configured(project):
             return
