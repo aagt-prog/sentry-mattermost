@@ -110,7 +110,7 @@ class MattermostOptionsForm(notify.NotificationConfigurationForm):
 
 
 class Mattermost(notify.NotificationPlugin):
-    title = 'Mattermost'
+    title = 'Mattermost Integration For ZP.RU'
     slug = 'mattermost'
     description = 'Enables notifications for Mattermost Open Source Chat'
     version = sentry_mattermost.VERSION
