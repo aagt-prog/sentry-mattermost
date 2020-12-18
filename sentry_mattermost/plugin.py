@@ -21,6 +21,7 @@
 import json
 import urllib.request
 import operator
+import requests
 
 from django import forms
 from django.db.models import Q
@@ -86,10 +87,10 @@ class PayloadFactory:
 
 
 def request(url, payload):
-    data = "payload=" + json.dumps(payload)
-    req =  urllib.request.Request(url, data)
-    response = urllib.request.urlopen(req)
-    return response.read()
+    data =  json.dumps(payload)
+    request = requests.post(url, data=data)
+    response = request.status_code
+    return response
 
 
 class MattermostOptionsForm(notify.NotificationConfigurationForm):
